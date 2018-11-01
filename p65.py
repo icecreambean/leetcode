@@ -22,6 +22,7 @@ def main():
             " -90e3    ":True, " 1e":False, "e3":False, " 6e-1":True, 
             " 99e2.5 ":False, "53.5e93":True, " --6 ":False, "-+3":False,
             "95a54e53":False, ".1":True, ".e1":False, "1e.66":False }
+    #note: didnt consider if "3.e5" (but not hard to fix if needed)
     for k in test:
         res = 'FAIL' if s.isNumber(k) != test[k] else '    '
         if res == 'FAIL':
