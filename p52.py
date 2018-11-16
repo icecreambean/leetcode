@@ -6,10 +6,7 @@
 #       doesnt work, more than one unique soln exists (e.g. see n = 5)
 #(looked at theoretical answer)
 #   dfs by columns
-#   ...need to separate [db]fs conceptually from brute-force;
-#      [db]fs only brutes along a subset of dimensions ... lots of early exits
-#      i.e. not 'brute force' because you broke the problem into a smaller one?
-#write in C++ to make faster...
+#   ...turns out the problem is O(n^n) so dfs still amounts to brute force
 
 class DfsSoln:
     def totalNQueens(self,n):
@@ -21,6 +18,7 @@ class DfsSoln:
         if n < 0: return 0
         #dfs stack & pathtracking
         stack = [self.DfsStackItem( 0,0 )] #deliberately not using call stack
+        #(turns out using stack recursion is more efficient anyway)
         path = []
         n_soln = 0 #counter
         #dfs loop: process the grid by column
@@ -90,7 +88,7 @@ class DfsSoln:
         def __str__(self):
             return "(%d,%d)" % (self.x, self.y)
         def __repr__(self):
-            return "(%d,%d)" % (self.x, self.y)
+            return self.__str__(self)
 
 
 
