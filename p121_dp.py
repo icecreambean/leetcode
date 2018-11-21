@@ -8,17 +8,29 @@
 # then p[i] = prices[i] - prices[j] and find i s.t. max profit
 # if all profits <= 0: return 0
 #
-#can't you just search for max and min in list? O(n)? 
-# max diff => order of acquisition is important
-# i: scan up to find min; j: scan down to find max
-# TODO what stop condition?
-#
+#sorting solution:
+# sort by min and max (one O(nlogn) operation)
+# scan through each array to find pairwise match: O(n^2) worst case
+
+#O(n) soln with hint :[
+# hint: track both current min and max_profit
+# for item i
+#  compare new profit relative to old min - records max profit
+#  update min if new min
+#what i needed to consider is that, if it dips, then all future profits must
+#be overriden by this newer lower buy price
 
 class Solution:
     #O(n) soln: not a DP solution
-    def maxProf(self,prices):
-
-        return 0
+    def maxProfit(self,prices):
+        prfmax = 0; imin = 0
+        for i,p in enumerate(prices[1:],1):
+            prf = p - prices[imin]
+            if prf > prfmax:
+                prfmax = prf
+            if p < prices[imin]:
+                imin = i
+        return prfmax
 
     #brute force DP: O(n^2), not fast enough
     def maxProfitBF(self,prices):
@@ -34,7 +46,7 @@ class Solution:
             prf = pi - pj
             if prf > prfmax:
                 prfmax = prf
-                imax = i
+                imax = i    #imax unnecessary
         return prfmax
 
 
@@ -42,7 +54,10 @@ def main():
     mp = Solution()
     problems = [[7,1,5,3,6,4], [7,6,4,3,1], [], [5], [6,5], [5,6]]
     for p in problems:
-        print("{} : {}".format(mp.maxProfit(p),p))
+        mpp = mp.maxProfit(p)
+        print("{}    {} : {}".format(mpp == mp.maxProfitBF(p),mpp,p))
 
 if __name__=='__main__':
     main()
+
+#sorted_index = sorted(range(len(prices)), key=lambda i: prices[i])
