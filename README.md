@@ -1,2 +1,3 @@
 # leetcode
-time to git gud
+
+Uni's over - it's time to grinddd
