@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring> // bad practice for memcpy?
 
+// STL: https://www.geeksforgeeks.org/the-c-standard-template-library-stl/ 
+
 // https://stackoverflow.com/questions/4670782/the-difference-between-delete-and-delete-in-c
 // https://stackoverflow.com/questions/4172722/what-is-the-rule-of-three
 // * "Rule of Three": need copy constructor+assignment, to do deepcopy on pointer items
