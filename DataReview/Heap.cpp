@@ -114,6 +114,10 @@ void Heap<T>::fixUp(T k) { // index
     }
 }
 
+// list implementation of a heap (instead of a tree) is significantly better, because
+// it gives a clear and efficient idea as to how to add elements to the tree in a balanced
+// manner. however, on popping, this imposes a constraint of needing to fill in any holes.
+// this is not an issue as a list remains a good option for this with O(1) retrieval.
 template<typename T>
 T Heap<T>::pop() {
     // remove root, and fix downwards (promoting new root)
