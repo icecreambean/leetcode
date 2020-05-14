@@ -170,7 +170,8 @@ void mergeSort(std::array<T,N>& a, bool (*cmp)(T,T), int lo, int hi) {
 
 // #######################################
 
-// heapSort: insert into heap, then pop out of heap
+// heapSort: insert into heap, then pop out of heap. O(n log n); not stable; in-place
+// * log n per insertion/deletion. Perform n insertions.
 
 // #######################################
 // not strictly necessary if operator< and others have already been overloaded for type T
