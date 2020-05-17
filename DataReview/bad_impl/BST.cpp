@@ -140,13 +140,14 @@ void Tree<T>::print() {
 
 template<typename T>
 std::shared_ptr<Tree<T>> Tree<T>::rotateLeft() { // OPERATIONS: redirect x2 (root); nullptr x2
+                                                 // (see COMP1927): this is a bad impl; COMP1927 is just 2 ops (almost like a linked list)
     // cases in which it can't rotate
     if (root.get() == nullptr) {std::cout << "HEHE" << std::flush; return this->shared_from_this();}
     if (right == nullptr || right.get() == nullptr) return this->shared_from_this();
     // get leftmost/smallest in right branch
     Tree<T> *pPrev = this;
     Tree<T> *pCur = right.get();
-    while (pCur->left != nullptr || pCur->left.get() != nullptr) {
+    while (pCur->left != nullptr || pCur->left.get() != nullptr) {  // NOTE: unnecessarily overcomplicated rotation (see COMP1927)
         pPrev = pCur;
         pCur = pCur->left.get();
     }
@@ -180,9 +181,10 @@ int main(int argc, char *argv[]) {
     //std::cout << "simple case: " << std::flush << ((t->rotateLeft()) == nullptr) << "\n";
     t->insert(3); 
     t->insert(2);
-    t->insert(6);
+    t->insert(8);
     t->insert(4);
-    t->insert(5);
+    t->insert(6);
+    t->insert(3);
     t->insert(1);
     t->print();
     // std::shared_ptr<Tree<int>> t2 = t->share();
