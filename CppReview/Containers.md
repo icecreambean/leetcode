@@ -37,6 +37,8 @@
    unordered_map
  * **Duplicate keys allowed**: unordered_multiset, unordered_multimap
 
+Multiset, multimap: use .find() to get an iterator; no convenience operator[].
+
 Container thread safety:
  * Separate unshared instances of containers are thread-safe
  * Edge cases: const member functions (or read-only functions) "thread-safe"; 
