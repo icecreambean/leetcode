@@ -111,6 +111,7 @@ struct PersonCompare42 {
         return std::abs(p1.getAge()-42) < std::abs(p2.getAge()-42);
     }
 };
+// https://www.fluentcpp.com/2019/10/29/stdless-and-its-modern-evolution/
 
 
 // [HASH TABLES] ########################################
