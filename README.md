@@ -1,5 +1,9 @@
 # leetcode
 
-Uni's over - it's time to grinddd
+School's out and it's time to grind,
+Gotta catch up, my peers have all left me behind...
 
-https://leetcode.com/tag/dynamic-programming/
+~~Testimonies:~~ 
+Words of inspiration:
+ * "Too weak, too slow" - J.Z
+ * "Git gud" - Mr Rhee

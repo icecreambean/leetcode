@@ -23,6 +23,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <map>
+#include <vector>
 #include <cmath>
 // https://stackoverflow.com/questions/15595804/c-hash-function-for-string-in-unordered-map/18005072
 // * good practice to do `#include <string>` if using it as a key in unordered_map
@@ -195,11 +196,34 @@ void tree2() {
     std::cout << "\n";
 }
 
+template<typename T>
+void printList(const std::vector<T> &l) {
+    for (T elem: l) std::cout << elem << " ";
+    std::cout << "\n";
+}
+
+void reverseArray() {
+    // l(10): vector with 10 zeros
+    // l{10}: vector with elements {10}
+    const int vsize = 11;
+    std::vector<int> l(vsize);
+    for (int i = 1; i <= vsize; i++) l[i-1] = i;
+    printList(l);
+    
+    for (int i = 0; i < static_cast<int>(l.size())/2; i++) {
+        int temp = l[i];
+        l[i] = l[l.size()-1-i];
+        l[l.size()-1-i] = temp;
+    }
+    printList(l);
+}
+
 // ########################################
 int main(int argc, char *argv[]) {
     ht1();
     ht2();
     tree1();
     tree2();
+    reverseArray();
     return 0;
 }
